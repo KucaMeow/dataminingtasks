@@ -27,11 +27,11 @@ public class Main {
                     prod_count_reg.put(region, new HashMap<String, Integer>());
                 }
                 if(!prod_count_reg.get(region).containsKey(prod_code)) {
-                    prod_count_reg.get(region).put(prod_code, 1);
+                    prod_count_reg.get(region).put(prod_code, Integer.parseInt(transaction[4])); //4 - QUANTITY
                 }
                 else {
                     prod_count_reg.get(region).put(prod_code,
-                            prod_count_reg.get(region).get(prod_code) + 1);
+                            prod_count_reg.get(region).get(prod_code) + Integer.parseInt(transaction[4]));
                 }
             }
         }
