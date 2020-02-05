@@ -38,7 +38,21 @@ public class Main {
 
         for(Map.Entry<String, Map<String, Integer>> regs : prod_count_reg.entrySet()) {
             System.out.println(regs.getKey());
-            System.out.println(regs.getValue().toString());
+            String prod_max = "", prod_min = "";
+            int prod_max_c = -1, prod_min_c = Integer.MAX_VALUE;
+            for(Map.Entry<String, Integer> prods : regs.getValue().entrySet()) {
+                if(prods.getValue() > prod_max_c) {
+                    prod_max = prods.getKey();
+                    prod_max_c = prods.getValue();
+                }
+                if(prods.getValue() < prod_min_c) {
+                    prod_min = prods.getKey();
+                    prod_min_c = prods.getValue();
+                }
+            }
+//            System.out.println(regs.getValue().toString());
+            System.out.println(prod_max + ":" + prod_max_c);
+            System.out.println(prod_min + ":" + prod_min_c);
             System.out.println();
         }
     }
